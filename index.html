@@ -58,12 +58,15 @@
   document.addEventListener('keydown', (e) => {
     const combo = ['l', 'a', 'b', 'r', 'a', 't'];
     let input = [];
-    document.addEventListener('keypress', (event) => {
-      input.push(event.key.toLowerCase());
-      if (input.slice(-combo.length).join('') === combo.join('')) {
-        if (!fogActive) activateLabRatMode();
-      }
-    });
+    let input = [];
+document.addEventListener('keypress', (event) => {
+  input.push(event.key.toLowerCase());
+  if (input.length > 10) input.shift();
+  if (input.slice(-6).join('') === 'labrat') {
+    document.getElementById('vSpeechModal').classList.remove('hidden');
+    document.getElementById('vivaldiAudio').play();
+  }
+});
     function activateLabRatMode() {
       fogActive = true;
       const fog = document.createElement('div');
@@ -177,17 +180,19 @@ $1
   </section>
 
   <!-- Contact Section -->
-  <section id="contact" class="px-6 py-12 text-center fade-in">
-    <h2 class="text-3xl font-semibold text-gold mb-4">Contact</h2>
-    <div class="space-x-4">
-      <a href="https://github.com/Falcon10056" class="text-accent hover:underline">GitHub</a>
-      <a href="mailto:narensivakumar1155@gmail.com" class="text-accent hover:underline">Email</a>
-      <a href="https://linkedin.com/in/naren-sivakumar" class="text-accent hover:underline">LinkedIn</a>
-      <a href="/PHD_Resume_Naren.pdf" class="text-accent hover:underline">Resume</a>
-    </div>
-  </section>
+  
+  <!-- Contact Section -->
+<section id="contact" class="px-6 py-12 text-center fade-in">
+  <h2 class="text-3xl font-semibold text-gold mb-4">Contact</h2>
+  <div class="space-x-4">
+    <a href="https://github.com/Falcon10056" class="text-accent hover:underline" aria-label="GitHub profile">GitHub</a>
+    <a href="mailto:narensivakumar1155@gmail.com" class="text-accent hover:underline" aria-label="Email Naren">Email</a>
+    <a href="https://linkedin.com/in/naren-sivakumar" class="text-accent hover:underline" aria-label="LinkedIn profile">LinkedIn</a>
+    <a href="/PHD_Resume_Naren.pdf" class="text-accent hover:underline" aria-label="Download resume">Resume</a>
+  </div>
+</section>
 
-  <!-- Footer -->
+<!-- Footer -->
   
   <!-- Publications Section -->
   <section id="publications" class="px-6 py-12 max-w-5xl mx-auto fade-in">
@@ -213,7 +218,49 @@ $1
       }, 3000);
     });
   </script>
-</main>
+<!-- Rest at Bonfire Button -->
+<div class="fixed bottom-4 right-4 z-50">
+  <button onclick="restAtBonfire()" class="bg-gold hover:bg-accent text-background font-semibold px-4 py-2 rounded shadow-lg">Rest at Bonfire</button>
+</div>
+
+<script>
+  function restAtBonfire() {
+    const overlay = document.createElement('div');
+    overlay.className = 'fixed inset-0 bg-black bg-opacity-90 flex items-center justify-center z-50 text-gold text-2xl font-serif';
+    overlay.innerHTML = '<div class="animate-pulse">You have rested. The world has respawned.</div>';
+    document.body.appendChild(overlay);
+    setTimeout(() => overlay.remove(), 3000);
+  }
+</script>
+
+<!-- YOU DIED PAGE (404.html) suggestion -->
+<!-- Create a new file named 404.html in your root folder with the following content: -->
+<!--
+<!DOCTYPE html>
+<html lang="en" class="dark">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>You Died</title>
+  <link href="https://cdn.tailwindcss.com" rel="stylesheet">
+  <style>
+    body { background-color: #0F0F0F; color: #B22222; font-family: EB Garamond, serif; text-align: center; padding-top: 20vh; }
+    .fade { animation: fadeIn 2s ease-in-out; }
+    @keyframes fadeIn {
+      from { opacity: 0; }
+      to { opacity: 1; }
+    }
+  </style>
+</head>
+<body>
+  <h1 class="text-6xl fade">YOU DIED</h1>
+  <p class="text-gray-400 mt-6 fade">But despair not, for even in death, you learn...</p>
+  <a href="/" class="text-gold underline mt-4 inline-block fade">Respawn at Last Bonfire</a>
+</body>
+</html>
+-->
+
+$1
 
   <script>
   const footerFacts = [
@@ -270,7 +317,7 @@ document.getElementById('vivaldiAudio').currentTime = 0;" class="mt-6 px-4 py-2 
 
 <script>
   document.addEventListener('keydown', (e) => {
-    if (e.key.toLowerCase() === 'v' && e.ctrlKey && e.shiftKey) {
+    if (input.slice(-6).join('') === 'labrat') {
       document.getElementById('vSpeechModal').classList.remove('hidden');
 document.getElementById('vivaldiAudio').play();
     }
