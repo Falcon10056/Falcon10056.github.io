@@ -53,7 +53,51 @@
       document.querySelectorAll('.fade-in').forEach(el => observer.observe(el));
     });
   </script>
-</head>
+<script>
+  let fogActive = false;
+  document.addEventListener('keydown', (e) => {
+    const combo = ['l', 'a', 'b', 'r', 'a', 't'];
+    let input = [];
+    document.addEventListener('keypress', (event) => {
+      input.push(event.key.toLowerCase());
+      if (input.slice(-combo.length).join('') === combo.join('')) {
+        if (!fogActive) activateLabRatMode();
+      }
+    });
+    function activateLabRatMode() {
+      fogActive = true;
+      const fog = document.createElement('div');
+      fog.style = 'position:fixed;top:0;left:0;width:100vw;height:100vh;background:#000000cc;z-index:1000;display:flex;justify-content:center;align-items:center;color:#F5F5F5;font-size:1.5rem;font-family:EB Garamond,serif;transition:opacity 1.2s ease-in-out;opacity:0';
+      fog.innerText = 'You are now in LAB RAT MODE – Observe. Adapt. Die. Retry.';
+      document.body.appendChild(fog);
+      setTimeout(() => fog.style.opacity = 1, 50);
+      setTimeout(() => fog.style.opacity = 0.95, 3000);
+    }
+  });
+</script>
+
+<style>
+  .fog-gate {
+    animation: fogFade 1.6s ease-in-out forwards;
+  }
+  @keyframes fogFade {
+    0% { opacity: 0; }
+    50% { opacity: 0.8; }
+    100% { opacity: 0; display: none; }
+  }
+</style>
+
+<script>
+  window.addEventListener('DOMContentLoaded', () => {
+    const fog = document.createElement('div');
+    fog.className = 'fixed top-0 left-0 w-full h-full bg-black z-50 flex items-center justify-center fog-gate';
+    fog.innerHTML = '<span class="text-gold text-3xl font-serif">Naren Sivakumar</span>';
+    document.body.appendChild(fog);
+    setTimeout(() => fog.remove(), 2000);
+  });
+</script>
+
+$1
 
 <body class="bg-background text-text font-sans" role="document">
   <a href="#about" class="sr-only focus:not-sr-only absolute top-2 left-2 bg-gold text-background px-4 py-2 rounded">Skip to main content</a>
@@ -84,7 +128,7 @@
   <section id="about" class="px-6 py-12 max-w-3xl mx-auto fade-in">
     <h2 class="text-3xl font-semibold text-gold mb-4">About</h2>
     <div class="flex flex-col md:flex-row gap-6 items-center">
-      <img src="assets/me_formal_cropped.jpg" alt="Naren Sivakumar" class="w-40 h-40 rounded-full object-cover shadow-md" />
+      <img src="assets/images/me_formal_cropped.jpg" alt="Naren Sivakumar" class="w-40 h-40 rounded-full object-cover shadow-md" />
       <p class="text-lg text-gray-300">
         I'm a PhD student with a love for distributed systems, agent-based AI, and exploratory travel.
         I write, build things, and sometimes vanish into ancient cities or obscure codebases.
@@ -144,7 +188,32 @@
   </section>
 
   <!-- Footer -->
-  </main>
+  
+  <!-- Publications Section -->
+  <section id="publications" class="px-6 py-12 max-w-5xl mx-auto fade-in">
+    <h2 class="text-3xl font-semibold text-gold mb-6">Research & Publications</h2>
+    <ul class="list-disc list-inside text-gray-300 space-y-2">
+      <li><span class="text-accent font-semibold">Show and Tell</span> — IEEE Gen4DS, 2024. <a href="https://ceur-ws.org/Vol-3180/paper-165.pdf" class="underline text-accent">[PDF]</a></li>
+      <li><span class="text-accent font-semibold">Classification of Plant Species</span> — CLEF Working Notes, 2022.</li>
+      <li><span class="text-accent font-semibold">Lifelong and Continual Learning</span> — White Paper, UMBC, 2024.</li>
+      <li><span class="text-accent font-semibold">Machine Unlearning and Model Editing</span> — White Paper, UMBC, 2024.</li>
+    </ul>
+  </section>
+
+  <!-- Hidden Typing Easter Egg -->
+  <script>
+    const heroName = document.querySelector('h1');
+    let pressCount = 0;
+    heroName.addEventListener('mouseenter', () => {
+      setTimeout(() => {
+        const phrase = document.createElement('p');
+        phrase.className = 'text-gray-500 mt-4 italic';
+        phrase.innerText = 'Bearer of curses... Seek souls, larger and more powerful souls.';
+        heroName.insertAdjacentElement('afterend', phrase);
+      }, 3000);
+    });
+  </script>
+</main>
 
   <footer role="contentinfo" class="py-6 text-center text-sm text-gray-500">
     <p>&copy; 2025 Naren Sivakumar. Built with ☕, TailwindCSS, and mild chaos. <a href="https://github.com/Falcon10056" class="text-accent hover:underline">View source</a></p>
