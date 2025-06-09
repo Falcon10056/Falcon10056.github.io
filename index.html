@@ -107,7 +107,7 @@
   <section id="about" class="px-6 py-12 max-w-3xl mx-auto fade-in">
     <h2 class="text-3xl font-semibold text-gold mb-4">About</h2>
     <div class="flex flex-col md:flex-row gap-6 items-center">
-      <img src="assets/me_formal_cropped.jpg" alt="Naren Sivakumar" class="w-40 h-40 rounded-full object-cover shadow-md" />
+      <img src="assets/images/me_formal_cropped.jpg" alt="Naren Sivakumar" class="w-40 h-40 rounded-full object-cover shadow-md" />
       <p class="text-lg text-gray-300">
         I'm a PhD student with a love for distributed systems, agent-based AI, and exploratory travel.
         I write, build things, and sometimes vanish into ancient cities or obscure codebases.
@@ -209,9 +209,36 @@
   }
 </script>
 
+<!-- YOU DIED PAGE (404.html) suggestion -->
+<!-- Create a new file named 404.html in your root folder with the following content: -->
+<!--
+<!DOCTYPE html>
+<html lang="en" class="dark">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>You Died</title>
+  <link href="https://cdn.tailwindcss.com" rel="stylesheet">
+  <style>
+    body { background-color: #0F0F0F; color: #B22222; font-family: EB Garamond, serif; text-align: center; padding-top: 20vh; }
+    .fade { animation: fadeIn 2s ease-in-out; }
+    @keyframes fadeIn {
+      from { opacity: 0; }
+      to { opacity: 1; }
+    }
+  </style>
+</head>
+<body>
+  <h1 class="text-6xl fade">YOU DIED</h1>
+  <p class="text-gray-400 mt-6 fade">But despair not, for even in death, you learn...</p>
+  <a href="/" class="text-gold underline mt-4 inline-block fade">Respawn at Last Bonfire</a>
+</body>
+</html>
+-->
 
+$1
 
-<script>
+  <script>
   const footerFacts = [
     'Tomorrow is a hope, never a promise. – Kindred',
     'Dark Souls was almost called "Dark Ring"... until they realized.',
@@ -243,7 +270,7 @@
 </script>
 <footer role="contentinfo" class="py-6 text-center text-sm text-gray-500">
     <p id="footer-rotator" class="italic mb-2 text-gray-400">Bearer of curses, your journey continues...</p>
-    <p>$1</p>
+    
   </footer>
 
 <!-- V for Vendetta Speech Modal -->
@@ -262,23 +289,7 @@
   <source src="https://upload.wikimedia.org/wikipedia/commons/9/9b/Vivaldi_Winter_Mvt_1.ogg" type="audio/ogg">
   Your browser does not support the audio element.
 </audio>
-<!-- V for Vendetta Speech Modal -->
-<audio id="vivaldiAudio" loop>
-  <source src="https://upload.wikimedia.org/wikipedia/commons/9/9b/Vivaldi_Winter_Mvt_1.ogg" type="audio/ogg">
-  Your browser does not support the audio element.
-</audio>
 
-  <div class="max-w-2xl text-center font-serif text-lg space-y-4">
-    <p>Voilá! In view, a humble vaudevillian veteran, cast vicariously as both victim and villain by the vicissitudes of Fate.</p>
-    <p>This visage, no mere veneer of vanity, is a vestige of the vox populi, now vacant, vanished.</p>
-    <p>However, this valorous visitation of a bygone vexation stands vivified and has vowed to vanquish these venal and virulent vermin vanguarding vice and vouchsafing the violently vicious and voracious violation of volition.</p>
-    <p>The only verdict is vengeance; a vendetta, held as a votive, not in vain, for the value and veracity of such shall one day vindicate the vigilant and the virtuous.</p>
-    <p>Verily, this vichyssoise of verbiage veers most verbose, so let me simply add that it’s my very good honor to meet you and you may call me V.</p>
-    <button onclick="document.getElementById('vSpeechModal').classList.add('hidden');
-document.getElementById('vivaldiAudio').pause();
-document.getElementById('vivaldiAudio').currentTime = 0;" class="mt-6 px-4 py-2 bg-gold text-background rounded hover:bg-accent">Close</button>
-  </div>
-</div>
 
 <script>
   let input = [];
