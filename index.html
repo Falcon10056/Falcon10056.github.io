@@ -53,31 +53,7 @@
       document.querySelectorAll('.fade-in').forEach(el => observer.observe(el));
     });
   </script>
-<script>
-  let fogActive = false;
-  document.addEventListener('keydown', (e) => {
-    const combo = ['l', 'a', 'b', 'r', 'a', 't'];
-    let input = [];
-    let input = [];
-document.addEventListener('keypress', (event) => {
-  input.push(event.key.toLowerCase());
-  if (input.length > 10) input.shift();
-  if (input.slice(-6).join('') === 'labrat') {
-    document.getElementById('vSpeechModal').classList.remove('hidden');
-    document.getElementById('vivaldiAudio').play();
-  }
-});
-    function activateLabRatMode() {
-      fogActive = true;
-      const fog = document.createElement('div');
-      fog.style = 'position:fixed;top:0;left:0;width:100vw;height:100vh;background:#000000cc;z-index:1000;display:flex;justify-content:center;align-items:center;color:#F5F5F5;font-size:1.5rem;font-family:EB Garamond,serif;transition:opacity 1.2s ease-in-out;opacity:0';
-      fog.innerText = 'You are now in LAB RAT MODE – Observe. Adapt. Die. Retry.';
-      document.body.appendChild(fog);
-      setTimeout(() => fog.style.opacity = 1, 50);
-      setTimeout(() => fog.style.opacity = 0.95, 3000);
-    }
-  });
-</script>
+
 
 <style>
   .fog-gate {
@@ -100,7 +76,7 @@ document.addEventListener('keypress', (event) => {
   });
 </script>
 
-$1
+
 
 <body class="bg-background text-text font-sans" role="document">
   <a href="#about" class="sr-only focus:not-sr-only absolute top-2 left-2 bg-gold text-background px-4 py-2 rounded">Skip to main content</a>
@@ -131,7 +107,7 @@ $1
   <section id="about" class="px-6 py-12 max-w-3xl mx-auto fade-in">
     <h2 class="text-3xl font-semibold text-gold mb-4">About</h2>
     <div class="flex flex-col md:flex-row gap-6 items-center">
-      <img src="assets/me_formal_cropped.jpg" alt="Naren Sivakumar" class="w-40 h-40 rounded-full object-cover shadow-md" />
+      <img src="assets/images/me_formal_cropped.jpg" alt="Naren Sivakumar" class="w-40 h-40 rounded-full object-cover shadow-md" />
       <p class="text-lg text-gray-300">
         I'm a PhD student with a love for distributed systems, agent-based AI, and exploratory travel.
         I write, build things, and sometimes vanish into ancient cities or obscure codebases.
@@ -296,6 +272,23 @@ $1
     <p id="footer-rotator" class="italic mb-2 text-gray-400">Bearer of curses, your journey continues...</p>
     <p>$1</p>
   </footer>
+
+<!-- V for Vendetta Speech Modal -->
+<div id="vSpeechModal" class="hidden fixed inset-0 bg-black bg-opacity-90 text-text flex items-center justify-center z-50 p-8">
+  <div class="max-w-2xl text-center font-serif text-lg space-y-4">
+    <p>Voilá! In view, a humble vaudevillian veteran, cast vicariously as both victim and villain by the vicissitudes of Fate.</p>
+    <p>This visage, no mere veneer of vanity, is a vestige of the vox populi, now vacant, vanished.</p>
+    <p>However, this valorous visitation of a bygone vexation stands vivified and has vowed to vanquish these venal and virulent vermin vanguarding vice and vouchsafing the violently vicious and voracious violation of volition.</p>
+    <p>The only verdict is vengeance; a vendetta, held as a votive, not in vain, for the value and veracity of such shall one day vindicate the vigilant and the virtuous.</p>
+    <p>Verily, this vichyssoise of verbiage veers most verbose, so let me simply add that it’s my very good honor to meet you and you may call me V.</p>
+    <button onclick="document.getElementById('vSpeechModal').classList.add('hidden'); document.getElementById('vivaldiAudio').pause(); document.getElementById('vivaldiAudio').currentTime = 0;" class="mt-6 px-4 py-2 bg-gold text-background rounded hover:bg-accent">Close</button>
+  </div>
+</div>
+
+<audio id="vivaldiAudio" loop>
+  <source src="https://upload.wikimedia.org/wikipedia/commons/9/9b/Vivaldi_Winter_Mvt_1.ogg" type="audio/ogg">
+  Your browser does not support the audio element.
+</audio>
 <!-- V for Vendetta Speech Modal -->
 <audio id="vivaldiAudio" loop>
   <source src="https://upload.wikimedia.org/wikipedia/commons/9/9b/Vivaldi_Winter_Mvt_1.ogg" type="audio/ogg">
@@ -316,10 +309,13 @@ document.getElementById('vivaldiAudio').currentTime = 0;" class="mt-6 px-4 py-2 
 </div>
 
 <script>
-  document.addEventListener('keydown', (e) => {
+  let input = [];
+  document.addEventListener('keypress', (event) => {
+    input.push(event.key.toLowerCase());
+    if (input.length > 10) input.shift();
     if (input.slice(-6).join('') === 'labrat') {
       document.getElementById('vSpeechModal').classList.remove('hidden');
-document.getElementById('vivaldiAudio').play();
+      document.getElementById('vivaldiAudio').play();
     }
   });
 </script>
